@@ -1,0 +1,68 @@
+.background-image {
+    background-image: url('https://i.postimg.cc/vH95dpT0/DALL-E-2024-11-01-15-38-28-A-serene-and-professional-background-image-for-a-hospital-ticket-bookin.webp'); /* Replace 'your_image_path.jpg' with the actual path to your image */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+}/* ... your existing CSS ... */
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    text-align: center;
+    padding: 20px;
+    background-color: #f2f2f2;
+}
+
+.background-image {
+    background-image: url('your_image.jpg'); /* Replace with your image path */
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    position: relative;
+}
+
+.button-container {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hospital-button {
+    width: 100%;
+    padding: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 20px;
+    margin: 10px 0;
+}
+
+.hospital-details {
+    display: none;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.hospital-card {
+    margin-bottom: 20px;
+    border: 1px solid white;
+    padding: 10px;
+    border-radius: 5px;
+}

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registration - Hospital Ticket Booking</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <!-- Header Section -->
+    <he>
+        <h1>Welcome to Our DHTB</h1>
+        <p>Book your appointment quickly and easily with our online registration.</p>
+    </header>
+
+    <!-- Registration Form Container -->
+    <div class="container">
+        <form id="registration-form" action="captcha.php" method="POST">
+            <h2>Register</h2>
+
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your full name">
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" required placeholder="Enter your phone number">
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="1" max="120" required placeholder="Enter your age">
+
+            <label for="sex">Sex:</label>
+            <select id="sex" name="sex" required>
+                <option value="" disabled selected>Select your gender</option>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+
+            <!-- Captcha Section -->
+            <label for="captcha">Type the characters below:</label>
+            <div class="captcha-box" id="captcha-box">
+                <input type="text" id="captcha" name="captcha" readonly class="captcha-input">
+                <input type="hidden" id="captcha-value" name="captcha-value"> <!-- Hidden field to store the actual captcha -->
+            </div>
+            <input type="text" id="captcha-input" name="captcha-input" required placeholder="Enter captcha">
+
+
+
+            <button onclick="redirectToHome()">Register</button>
+
+<script>
+function redirectToHome() {
+    window.location.href = "index.html"; 
+}
+</script>
+        </form>
+    </div>
+
+    <script>
+        // JavaScript function to generate random captcha text
+        function generateCaptcha() {
+            const characters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let captcha = '';
+            for (let i = 0; i < 6; i++) {
+                captcha += characters.charAt(Math.floor(Math.random() * characters.length));
+            }
+            document.getElementById('captcha').value = captcha; // Set the captcha text in the input
+            document.getElementById('captcha-value').value = captcha; // Store it in a hidden field for validation
+        }
+
+        // Call function to generate captcha when the page loads
+        window.onload = generateCaptcha;
+    </script>
+
+    <style>
+        /* Add some basic styles for the captcha box */
+        .captcha-box {
+            border: 1px solid #ffffff; /* Border style */
+            background-color: #ffffff; /* Light background */
+            padding: 10px; /* Padding around the text */
+            margin: 10px 0; /* Margin for spacing */
+            display: flex; /* Flexbox for layout */
+            justify-content: center; /* Center content horizontally */
+            align-items: center; /* Center content vertically */
+            font-weight: bold; /* Make the captcha text bold */
+            font-size: 20px; /* Increase font size */
+            color: #2e2e2e; /* Text color */
+        }
+
+        .captcha-input {
+            width: 100%; /* Full width */
+            border: none; /* Remove default border */
+            outline: none; /* Remove outline */
+            font-size: 20px; /* Increase font size */
+        }
+
+        /* Style for the user input field for captcha response */
+        #captcha-input {
+            width: 100%; /* Full width */
+            padding: 10px; /* Padding for input */
+            font-size: 20px; /* Increase font size */
+            margin-top: 10px; /* Margin to separate from captcha box */
+        }
+    </style>
+</body>
+</html>
